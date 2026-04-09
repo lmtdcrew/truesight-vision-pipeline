@@ -38,4 +38,30 @@
 **Next:**
 - Reference Guide #4 for combined_pipeline.py
 - Begin YOLOv8 fine-tuning on Roboflow/Colab
-- Update LinkedIn with pipeline progress post
+
+## April 8, 2026
+
+### Session Summary
+- Colab GPU quota exhausted mid-training (epoch 20, 57% complete)
+- best.pt lost — /content/ directory wiped on runtime reset
+- Migrated training pipeline from Colab to Kaggle
+- Resolved Kaggle phone verification, GPU access, and internet permissions
+- Uploaded TrueSight V1 dataset (41,136 images) to Kaggle as truesight-data
+- Retrained YOLOv8n — 20 epochs, 2.469 hours on Tesla T4
+
+### Results (best.pt)
+- mAP50: 0.487
+- mAP50-95: 0.347
+- Strong classes: explosion (0.923), shotgun (0.920), drone (0.880), civilian (0.824)
+- Weak classes: fighter-jet (0.0), ground-transport (0.0), tank (0.058)
+
+### Root Cause — Weak Classes
+- Training only saw 12 fighter-jet instances vs 2,940 in Roboflow
+- Dataset upload to Kaggle was likely truncated — only ~3,794 training images used instead of 36,046
+- Fix: re-download V1 fresh from Roboflow, verify count, re-upload, retrain tomorrow
+
+### Next Steps
+- Verify train/images has 36,046 files in fresh Roboflow export
+- Delete current Kaggle dataset, upload clean zip, retrain
+- Swap best.pt into combined_pipeline.py and test
+- Record combined_pipeline.py demo video once best.pt v2 is integrated
