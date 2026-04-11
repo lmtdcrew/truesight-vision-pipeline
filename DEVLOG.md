@@ -65,3 +65,26 @@
 - Delete current Kaggle dataset, upload clean zip, retrain
 - Swap best.pt into combined_pipeline.py and test
 - Record combined_pipeline.py demo video once best.pt v2 is integrated
+
+## April 11, 2026
+
+### Session Summary
+- Completed Phase 2 — YOLOv8 fine-tuning with full 36,000 image dataset
+- Previous runs used only 3,794 training images due to corrupted Kaggle upload
+- Fixed with 7-Zip re-archive, verified 36,000 train images before upload
+- Final training run: 20 epochs, 2.492 hours, Tesla T4
+
+### Results (best.pt v2 — full dataset)
+- mAP50: 0.4708 | mAP50-95: 0.3347
+- fighter-jet: 0.447 (was 0.0) — fixed by full dataset
+- tank: 0.622 (was 0.058) — fixed by full dataset
+- soldier: 0.689 | pistol: 0.684 | helicopter: 0.737
+- drone: 0.407 — confusion with civilian class, needs cleaner training data
+
+### best.pt integrated
+- Replaced YOLO('yolov8n.pt') with YOLO('best.pt') in combined_pipeline.py
+- Pipeline runs clean, depth map + military detection confirmed working
+
+### Next Steps
+- Record demo video of combined_pipeline.py with best.pt
+- Begin Phase 3 — BNO085 IMU Visualizer (needs Teensy wiring)

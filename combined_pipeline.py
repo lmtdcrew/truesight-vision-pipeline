@@ -48,7 +48,7 @@ with np.errstate(divide='ignore'):
 depth_feet = depth_meters * METERS_TO_FEET
 
 # Run YOLO detection
-model = YOLO("yolov8n.pt")
+model = YOLO("best.pt")
 results = model(left_img, verbose=False)
 
 # Draw boxes with distance on image
@@ -81,7 +81,6 @@ for box in results[0].boxes:
     cv2.putText(output_img, label, (x1, y1 - 5),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
-print(f" {label}")
 
 # Color depth map
 disparity_display = cv2.normalize(
