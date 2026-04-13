@@ -88,3 +88,26 @@
 ### Next Steps
 - Record demo video of combined_pipeline.py with best.pt
 - Begin Phase 3 — BNO085 IMU Visualizer (needs Teensy wiring)
+
+## April 13, 2026
+
+### Phase 3 — BNO085 IMU Visualizer
+
+**Hardware:**
+- BNO085 (GY-BNO08X) wired to Teensy 4.1 via I2C (VCC→3.3V, GND→G, SCL→pin19, SDA→pin18)
+- Confirmed I2C address 0x4B via scanner sketch
+- New micro-USB data cable purchased (Best Buy) to resolve upload issue
+- Teensy Loader standalone app required for Arduino IDE 2.x compatibility
+
+**Software:**
+- SparkFun BNO08x library installed via ZIP
+- Example_01_RotationVector sketch uploaded with BNO08X_ADDR=0x4B, INT=-1, RST=-1
+- imu_visualizer.py written — pygame + PyOpenGL quaternion 3D visualizer
+- Correct OpenGL column-major matrix implemented (verified via songho.ca)
+- Axis mapping resolved: rel[1], -rel[3], rel[2] for pitch/yaw/roll
+- Serial buffer drain added to eliminate visualizer lag
+- Tare implemented in raw BNO frame before axis remapping
+
+**Status:** Phase 3 COMPLETE. IMU tracking confirmed accurate on all 3 axes.
+
+**Next:** Reference Guide #5 for imu_visualizer.py, then Phase 4 mmWave radar visualization.
