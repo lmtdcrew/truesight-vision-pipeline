@@ -111,3 +111,23 @@
 **Status:** Phase 3 COMPLETE. IMU tracking confirmed accurate on all 3 axes.
 
 **Next:** Reference Guide #5 for imu_visualizer.py, then Phase 4 mmWave radar visualization.
+
+## April 15, 2026
+
+### Phase 4 — IWR6843AOP mmWave Radar — COMPLETE
+
+**What was built:**
+- Diagnosed IWR6843AOP as CP2105-based (Silicon Labs, VID 10C4 PID EA70) — not XDS110
+- Installed CP210x VCP drivers — COM4 (CFG/Enhanced) and COM5 (Data/Standard) enumerated
+- Identified S3 switch (back of board) as SOP2 boot mode control — S2 is peripheral routing only
+- Flashed mmWave demo firmware via UniFlash 9.5.0: xwr68xx_mmw_demo.bin
+- Confirmed live point cloud in TI mmWave Demo Visualizer
+- Wrote radar_visualizer.py — live 2D+3D PyQtGraph visualizer reading COM5 at 921600 baud
+
+**Key learnings:**
+- IWR6843AOP has no onboard XDS110 — serial flash only via CP2105
+- Flash mode: S3 ON. Functional mode: S3 OFF. S1/S2 unchanged between modes
+- UniFlash must use Enhanced COM port (COM4) for flashing
+
+**Status:** Phase 4 COMPLETE. Phase 5 blocked on ArduCam B0492N (~$300).
+
