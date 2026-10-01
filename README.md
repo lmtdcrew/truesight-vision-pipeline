@@ -1,4 +1,4 @@
-# TrueSight Vision Pipeline
+# Prowler Vision Pipeline
 
 Wearable edge AI situational awareness system inspired by Anduril's Eagle Eye.
 Built by Noah McNabb | Palm Beach State College — Applied AI
@@ -13,7 +13,7 @@ real-time AI inference on an NVIDIA Jetson Orin Nano 8GB to produce an Eagle Eye
 HUD overlay — depth maps, object detection, and sensor fusion alerts rendered through
 a dual-OLED FPV display.
 
-This repository contains the software pipeline developed for TrueSight's vision system.
+This repository contains the software pipeline developed for Prowler's vision system.
 
 ---
 
