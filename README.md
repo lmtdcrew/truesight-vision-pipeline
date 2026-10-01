@@ -7,7 +7,7 @@ Built by Noah McNabb | Palm Beach State College — Applied AI
 
 ## What This Is
 
-TrueSight is a personal autonomous situational awareness system I am building from scratch.
+Prowler is a personal autonomous situational awareness system I am building from scratch.
 The helmet-mounted display combines stereo computer vision, 60GHz mmWave radar, and
 real-time AI inference on an NVIDIA Jetson Orin Nano 8GB to produce an Eagle Eye-style
 HUD overlay — depth maps, object detection, and sensor fusion alerts rendered through
